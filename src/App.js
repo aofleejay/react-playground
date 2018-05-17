@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Foo from './Foo'
 
 class App extends Component {
@@ -10,25 +10,25 @@ class App extends Component {
     console.log('constructor')
   }
 
-  componentWillMount() {
-    console.log('componentWillMount')
-  }
-
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   console.log('getDerivedStateFromProps')
-  //   console.log('nextProps: ', nextProps)
-  //   console.log('prevState: ', prevState)
-  //   return null
+  // componentWillMount() {
+  //   console.log('componentWillMount')
   // }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('getDerivedStateFromProps')
+    console.log('nextProps: ', nextProps)
+    console.log('prevState: ', prevState)
+    return null
+  }
   
   componentDidMount() {
     console.log('componentDidMount')
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps')
-    console.log('nextProps: ', nextProps)
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('componentWillReceiveProps')
+  //   console.log('nextProps: ', nextProps)
+  // }
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('shouldComponentUpdate')
@@ -37,16 +37,24 @@ class App extends Component {
     return true
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    console.log('componentWillUpdate')
-    console.log('nextProps: ', nextProps)
-    console.log('nextState: ', nextState)
+  // componentWillUpdate(nextProps, nextState) {
+  //   console.log('componentWillUpdate')
+  //   console.log('nextProps: ', nextProps)
+  //   console.log('nextState: ', nextState)
+  // }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('getSnapshotBeforeUpdate')
+    console.log('prevProps: ', prevProps)
+    console.log('prevState: ', prevState)
+    return null
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('componentDidUpdate')
     console.log('prevProps: ', prevProps)
     console.log('prevState: ', prevState)
+    console.log('snapshot: ', snapshot)
   }
 
   componentWillUnmount() {
@@ -56,12 +64,16 @@ class App extends Component {
   render() {
     console.log('render')
     return (
-      <div className="App">
-        <Foo from={this.state.from} />
-        <button onClick={() => this.setState({ from: 'New prop received.' })}>
-          Pass new prop
-        </button>
-      </div>
+      true &&
+      <Fragment>
+        <div className="App">
+          <Foo from={this.state.from} />
+          <button onClick={() => this.setState({ from: 'New prop received.' })}>
+            Pass new prop
+          </button>
+        </div>
+        <div></div>
+      </Fragment>
     )
   }
 }
