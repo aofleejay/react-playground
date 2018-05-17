@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types';
 import Foo from './Foo'
 
 class App extends Component {
@@ -76,6 +77,18 @@ class App extends Component {
       </Fragment>
     )
   }
+}
+
+App.propTypes = {
+  modThree: function(props, propName, componentName) {
+    console.log(props, propName, componentName)
+    if (props[propName] % 3 !== 0) {
+      return new Error(
+        'Invalid prop `' + propName + '` supplied to' +
+        ' `' + componentName + '`. Validation failed.'
+      );
+    }
+  },
 }
 
 export default App

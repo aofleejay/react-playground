@@ -5,6 +5,6 @@ import ErrorBoundary from './ErrorBoundary'
 
 ReactDOM.render(
   <ErrorBoundary>
-    <App />
+    <App modThree={2} />
   </ErrorBoundary>
 , document.getElementById('root'))
