@@ -57,7 +57,7 @@ class App extends Component {
     console.log('render')
     return (
       <div className="App">
-        <Foo from={this.state.from.o.o} />
+        <Foo from={this.state.from} />
         <button onClick={() => this.setState({ from: 'New prop received.' })}>
           Pass new prop
         </button>
