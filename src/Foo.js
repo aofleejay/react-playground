@@ -4,7 +4,7 @@ class Foo extends Component {
   state = { from: 'Initial Foo' }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    return { from: `${nextProps.from} [This sentence added from getDerivedStateFromProps]` }
+    return { from: `${nextProps.from} [This sentence added from getDerivedStateFromProps.]` }
   }
 
   render() {
