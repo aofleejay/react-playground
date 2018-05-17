@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import LandingPage from './components/LandingPage'
+import Foo from './Foo'
 
 class App extends Component {
+  state = {
+    from: 'Initial state from App',
+  }
+
   render() {
     return (
       <div className="App">
-        <LandingPage />
+        <Foo from={this.state.from} />
+        <button onClick={() => this.setState({ from: 'New prop received.' })}>Pass new prop</button>
       </div>
     );
   }
