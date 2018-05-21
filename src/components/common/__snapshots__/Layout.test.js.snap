@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test layout ui structure Match its snapshot When all props exists 1`] = `
+<React.Fragment>
+  <header>
+    Header
+  </header>
+  <div>
+    <Child />
+  </div>
+  <footer>
+    Footer
+  </footer>
+</React.Fragment>
+`;
+
+exports[`Test layout ui structure Match its snapshot When no props exists 1`] = `
+<React.Fragment>
+  <header>
+    Header
+  </header>
+  <div />
+  <footer>
+    Footer
+  </footer>
+</React.Fragment>
+`;

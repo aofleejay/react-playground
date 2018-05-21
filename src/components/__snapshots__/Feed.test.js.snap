@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Feed component Match its snapshot When all props exists 1`] = `
+<Layout>
+  <form
+    id="post-form"
+    onSubmit={[Function]}
+  >
+    <input
+      id="input-text"
+      maxLength={10}
+      name="text"
+      onChange={[Function]}
+      type="text"
+      value="My input text"
+    />
+    <input
+      id="submit-button"
+      type="submit"
+      value="send"
+    />
+  </form>
+  <Card
+    body="My body 1"
+    key="1"
+    title="My Title 1"
+  />
+  <Card
+    body="My body 2"
+    key="2"
+    title="My Title 2"
+  />
+</Layout>
+`;
+
+exports[`Test Feed component Match its snapshot When no props exists 1`] = `
+<Layout>
+  <form
+    id="post-form"
+    onSubmit={[Function]}
+  >
+    <input
+      id="input-text"
+      maxLength={10}
+      name="text"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <input
+      id="submit-button"
+      type="submit"
+      value="send"
+    />
+  </form>
+</Layout>
+`;

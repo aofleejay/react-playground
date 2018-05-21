@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import ErrorBoundary from './ErrorBoundary'
+import App from './components/App'
+import ErrorBoundary from './containers/ErrorBoundary'
 
 ReactDOM.render(
   <ErrorBoundary>
-    <App modThree={2} />
+    <App />
   </ErrorBoundary>
 , document.getElementById('root'))
