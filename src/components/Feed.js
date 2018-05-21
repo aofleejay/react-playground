@@ -13,7 +13,9 @@ const Form = styled.form`
 `
 Form.displayName = 'Form'
 
-const TextInput = styled.input`
+const TextInput = styled.input.attrs({
+  type: 'text',
+})`
   flex: 1;
   height: 30px;
   padding: 5px;
@@ -25,7 +27,9 @@ const TextInput = styled.input`
 `
 TextInput.displayName = 'TextInput'
 
-const SubmitButton = styled.input`
+const SubmitButton = styled.input.attrs({
+  type: 'submit',
+})`
   width: 100px;
   height: 30px;
   padding: 5px 15px;
@@ -49,7 +53,6 @@ const Feed = ({ posts, inputText, onChangeText, onSubmit }) => (
     >
       <TextInput
         id="input-text"
-        type="text"
         name="text"
         placeholder="What's happening?"
         value={inputText}
@@ -58,7 +61,6 @@ const Feed = ({ posts, inputText, onChangeText, onSubmit }) => (
       />
       <SubmitButton
         id="submit-button"
-        type="submit"
         value="Send"
       />
     </Form>

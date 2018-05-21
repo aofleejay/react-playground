@@ -12,12 +12,10 @@ exports[`Test Feed component Match its snapshot When all props exists 1`] = `
       name="text"
       onChange={[Function]}
       placeholder="What's happening?"
-      type="text"
       value="My input text"
     />
     <SubmitButton
       id="submit-button"
-      type="submit"
       value="Send"
     />
   </Form>
@@ -46,12 +44,10 @@ exports[`Test Feed component Match its snapshot When no props exists 1`] = `
       name="text"
       onChange={[Function]}
       placeholder="What's happening?"
-      type="text"
       value=""
     />
     <SubmitButton
       id="submit-button"
-      type="submit"
       value="Send"
     />
   </Form>
