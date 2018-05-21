@@ -1,29 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test card ui structure Match its snapshot When all props exists 1`] = `
-<React.Fragment>
-  <p
+<Container>
+  <Title
     id="card-title"
   >
     Lorem
-  </p>
-  <p
+  </Title>
+  <Text
     id="card-body"
   >
     Ipsum.
-  </p>
-</React.Fragment>
+  </Text>
+</Container>
 `;
 
 exports[`Test card ui structure Match its snapshot When no props exists 1`] = `
-<React.Fragment>
-  <p
+<Container>
+  <Title
     id="card-title"
   >
     Anonymous
-  </p>
-  <p
+  </Title>
+  <Text
     id="card-body"
   />
-</React.Fragment>
+</Container>
 `;

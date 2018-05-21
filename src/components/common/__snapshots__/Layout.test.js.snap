@@ -2,26 +2,16 @@
 
 exports[`Test layout ui structure Match its snapshot When all props exists 1`] = `
 <React.Fragment>
-  <header>
-    Header
-  </header>
-  <div>
+  <Navbar />
+  <Content>
     <Child />
-  </div>
-  <footer>
-    Footer
-  </footer>
+  </Content>
 </React.Fragment>
 `;
 
 exports[`Test layout ui structure Match its snapshot When no props exists 1`] = `
 <React.Fragment>
-  <header>
-    Header
-  </header>
-  <div />
-  <footer>
-    Footer
-  </footer>
+  <Navbar />
+  <Content />
 </React.Fragment>
 `;

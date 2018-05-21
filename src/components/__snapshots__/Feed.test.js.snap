@@ -2,24 +2,25 @@
 
 exports[`Test Feed component Match its snapshot When all props exists 1`] = `
 <Layout>
-  <form
+  <Form
     id="post-form"
     onSubmit={[Function]}
   >
-    <input
+    <TextInput
       id="input-text"
-      maxLength={10}
+      maxLength={300}
       name="text"
       onChange={[Function]}
+      placeholder="What's happening?"
       type="text"
       value="My input text"
     />
-    <input
+    <SubmitButton
       id="submit-button"
       type="submit"
-      value="send"
+      value="Send"
     />
-  </form>
+  </Form>
   <Card
     body="My body 1"
     key="1"
@@ -35,23 +36,24 @@ exports[`Test Feed component Match its snapshot When all props exists 1`] = `
 
 exports[`Test Feed component Match its snapshot When no props exists 1`] = `
 <Layout>
-  <form
+  <Form
     id="post-form"
     onSubmit={[Function]}
   >
-    <input
+    <TextInput
       id="input-text"
-      maxLength={10}
+      maxLength={300}
       name="text"
       onChange={[Function]}
+      placeholder="What's happening?"
       type="text"
       value=""
     />
-    <input
+    <SubmitButton
       id="submit-button"
       type="submit"
-      value="send"
+      value="Send"
     />
-  </form>
+  </Form>
 </Layout>
 `;
