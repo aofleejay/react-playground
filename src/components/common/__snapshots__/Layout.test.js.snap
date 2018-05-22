@@ -2,7 +2,18 @@
 
 exports[`Test layout ui structure Match its snapshot When all props exists 1`] = `
 <React.Fragment>
-  <Navbar />
+  <Navbar>
+    <Link
+      to="/"
+    >
+      Home
+    </Link>
+    <Link
+      to="/me"
+    >
+      Me
+    </Link>
+  </Navbar>
   <Content>
     <Child />
   </Content>
@@ -11,7 +22,42 @@ exports[`Test layout ui structure Match its snapshot When all props exists 1`] =
 
 exports[`Test layout ui structure Match its snapshot When no props exists 1`] = `
 <React.Fragment>
-  <Navbar />
+  <Navbar>
+    <Link
+      to="/"
+    >
+      Home
+    </Link>
+    <Link
+      to="/me"
+    >
+      Me
+    </Link>
+  </Navbar>
   <Content />
 </React.Fragment>
+`;
+
+exports[`asd 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+<nav
+  className="c0"
+/>
 `;

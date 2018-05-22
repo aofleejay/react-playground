@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Layout, Card } from './common'
-import * as COLORS from '../constants/colors'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Layout, Card } from './common';
+import * as COLORS from '../constants/colors';
 
 const Form = styled.form`
   display: flex;
@@ -10,11 +10,12 @@ const Form = styled.form`
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid ${COLORS.GREY_200};
-`
-Form.displayName = 'Form'
+`;
+Form.displayName = 'Form';
 
 const TextInput = styled.input.attrs({
   type: 'text',
+  required: true,
 })`
   flex: 1;
   height: 30px;
@@ -24,8 +25,8 @@ const TextInput = styled.input.attrs({
   border-radius: 5px;
   font-size: 14px;
   outline: none;
-`
-TextInput.displayName = 'TextInput'
+`;
+TextInput.displayName = 'TextInput';
 
 const SubmitButton = styled.input.attrs({
   type: 'submit',
@@ -42,10 +43,12 @@ const SubmitButton = styled.input.attrs({
   font-weight: bold;
   cursor: pointer;
   outline: none;
-`
-SubmitButton.displayName = 'SubmitButton'
+`;
+SubmitButton.displayName = 'SubmitButton';
 
-const Feed = ({ posts, inputText, onChangeText, onSubmit }) => (
+const Feed = ({
+  posts, inputText, onChangeText, onSubmit,
+}) => (
   <Layout>
     <Form
       id="post-form"
@@ -72,26 +75,24 @@ const Feed = ({ posts, inputText, onChangeText, onSubmit }) => (
       />
     ))}
   </Layout>
-)
+);
 
 Feed.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      body: PropTypes.string.isRequired,
-    })
-  ),
+  posts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string,
+    body: PropTypes.string.isRequired,
+  })),
   inputText: PropTypes.string,
   onChangeText: PropTypes.func,
   onSubmit: PropTypes.func,
-}
+};
 
 Feed.defaultProps = {
   posts: [],
   inputText: '',
   onChangeText: () => {},
   onSubmit: () => {},
-}
+};
 
-export default Feed
+export default Feed;

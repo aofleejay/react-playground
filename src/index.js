@@ -1,11 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './components/App'
-import ErrorBoundary from './containers/ErrorBoundary'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Routes from './components/Routes';
+import ErrorBoundary from './containers/ErrorBoundary';
+import './index.css';
 
 ReactDOM.render(
   <ErrorBoundary>
-    <App />
+    <Routes />
   </ErrorBoundary>
-, document.getElementById('root'))
+  , document.getElementById('root'),
+);
