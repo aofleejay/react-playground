@@ -35,7 +35,8 @@ describe('Test card ui structure', () => {
     });
 
     it('When no props exists', () => {
-      wrapper = shallow(<Card />);
+      props.title = undefined
+      wrapper = shallow(<Card {...props} />);
       expect(wrapper).toMatchSnapshot();
     });
   });

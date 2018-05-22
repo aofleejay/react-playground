@@ -24,6 +24,8 @@ exports[`Test card ui structure Match its snapshot When no props exists 1`] = `
   </Title>
   <Text
     id="card-body"
-  />
+  >
+    Ipsum.
+  </Text>
 </Container>
 `;

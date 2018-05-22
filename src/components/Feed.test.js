@@ -1,11 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import sinon from 'sinon';
 import Feed from './Feed';
-
-jest.mock('../components/common', () => ({
-  Layout: 'Layout',
-  Card: 'Card',
-}));
 
 describe('Test Feed component', () => {
   let props;
@@ -37,24 +33,20 @@ describe('Test Feed component', () => {
   });
 
   describe('Test submit form', () => {
-    afterEach(() => {
-      jest.resetAllMocks();
-    });
-
-    it('Should call props onSubmit when click submit button', () => {
-      props.onSubmit = jest.fn();
+    it('Should call props onSubmit when submit form', () => {
+      props.onSubmit = sinon.spy();
       const wrapper = shallow(<Feed {...props} />);
       wrapper.find('#post-form').simulate('submit');
 
-      expect(props.onSubmit).toHaveBeenCalledTimes(1);
+      expect(props.onSubmit.callCount).toEqual(1);
     });
 
     it('Should call props onChangeText when typing in text input', () => {
-      props.onChangeText = jest.fn();
+      props.onChangeText = sinon.spy();
       const wrapper = shallow(<Feed {...props} />);
       wrapper.find('#input-text').simulate('change');
 
-      expect(props.onChangeText).toHaveBeenCalledTimes(1);
+      expect(props.onChangeText.callCount).toEqual(1);
     });
   });
 });

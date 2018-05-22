@@ -2,10 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Layout, { Navbar } from './Layout';
 
-jest.mock('react-router-dom', () => ({
-  Link: () => 'Link',
-}));
-
 describe('Test layout ui structure', () => {
   describe('Match its snapshot', () => {
     it('When all props exists', () => {
@@ -24,8 +20,10 @@ describe('Test layout ui structure', () => {
   });
 });
 
-it('asd', () => {
-  const wrapper = shallow(<Navbar />);
-
-  expect(wrapper).toMatchSnapshot();
-});
+describe('Test Navbar styled-components', () => {
+  it('Match its snapshot', () => {
+    const wrapper = shallow(<Navbar />);
+  
+    expect(wrapper).toMatchSnapshot();
+  });
+})
