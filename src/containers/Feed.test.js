@@ -57,7 +57,7 @@ describe('Test Feed component', () => {
       const mockGet = sinon.mock(axios)
         .expects('get')
         .once()
-        .withExactArgs('http://localhost:3000/posts?_sort=id&_order=desc')
+        .withExactArgs('http://localhost:5000/posts?_sort=id&_order=desc')
         .resolves({ data: [] });
       const mockSetState = sinon.mock(instance)
         .expects('setState')
@@ -78,7 +78,7 @@ describe('Test Feed component', () => {
       const mockGet = sinon.mock(axios)
         .expects('get')
         .once()
-        .withExactArgs('http://localhost:3000/posts?_sort=id&_order=desc')
+        .withExactArgs('http://localhost:5000/posts?_sort=id&_order=desc')
         .rejects(error);
       const mockSetState = sinon.mock(instance)
         .expects('setState')

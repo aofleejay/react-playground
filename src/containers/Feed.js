@@ -3,11 +3,12 @@ import axios from 'axios'
 import Feed from '../components/Feed'
 // import { createPost, postsDatabase } from '../libs/firebase'
 
+const POLLING_INTERVAL = 5000
+
 class FeedContainer extends Component {
   state = { posts: [], inputText: '' }
 
   componentDidMount() {
-    const POLLING_INTERVAL = 5000
     this.fetchPosts()
     this.intervalId = setInterval(this.fetchPosts, POLLING_INTERVAL)
   }
@@ -30,13 +31,13 @@ class FeedContainer extends Component {
   // }
 
   fetchPosts = () => {
-    return axios.get('http://localhost:3000/posts?_sort=id&_order=desc')
+    return axios.get('http://localhost:5000/posts?_sort=id&_order=desc')
       .then(response => { this.setState({ posts: response.data }) })
       .catch(error => { this.setState({ error }) })
   }
 
   createPost = ({ body, title = 'Anonymous' }) => {
-    return axios.post('http://localhost:3000/posts', { body, title })
+    return axios.post('http://localhost:5000/posts', { body, title })
       .then(response => { this.setState({ posts: [response.data, ...this.state.posts], inputText: '' }) })
       .catch(error => { this.setState({ error, inputText: '' }) })
   }
