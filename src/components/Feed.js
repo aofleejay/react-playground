@@ -1,8 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Layout, Card } from './common';
-import * as COLORS from '../constants/colors';
+import React, { PureComponent, lazy, Suspense } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Layout, Card } from './common'
+import ThemeContext from '../contexts/Theme'
+import * as COLORS from '../constants/colors'
+const Trending = lazy(() => import('./Trending'))
 
 const Form = styled.form`
   display: flex;
@@ -10,8 +12,8 @@ const Form = styled.form`
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid ${COLORS.GREY_200};
-`;
-Form.displayName = 'Form';
+`
+Form.displayName = 'Form'
 
 const TextInput = styled.input.attrs({
   type: 'text',
@@ -25,8 +27,8 @@ const TextInput = styled.input.attrs({
   border-radius: 5px;
   font-size: 14px;
   outline: none;
-`;
-TextInput.displayName = 'TextInput';
+`
+TextInput.displayName = 'TextInput'
 
 const SubmitButton = styled.input.attrs({
   type: 'submit',
@@ -43,39 +45,49 @@ const SubmitButton = styled.input.attrs({
   font-weight: bold;
   cursor: pointer;
   outline: none;
-`;
-SubmitButton.displayName = 'SubmitButton';
+`
+SubmitButton.displayName = 'SubmitButton'
 
-const Feed = ({
-  posts, inputText, onChangeText, onSubmit,
-}) => (
-  <Layout>
-    <Form
-      id="post-form"
-      onSubmit={onSubmit}
-    >
-      <TextInput
-        id="input-text"
-        name="text"
-        placeholder="What's happening?"
-        value={inputText}
-        maxLength={300}
-        onChange={onChangeText}
-      />
-      <SubmitButton
-        id="submit-button"
-        value="Send"
-      />
-    </Form>
-    { posts.map(({ id, title, body }) => (
-      <Card
-        key={id}
-        title={title}
-        body={body}
-      />
-    ))}
-  </Layout>
-);
+class Feed extends PureComponent {
+  static contextType = ThemeContext
+
+  render() {
+    const { posts, inputText, onChangeText, onSubmit } = this.props
+    const theme = this.context
+
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Layout>
+          <Trending />
+          <Form
+            id="post-form"
+            onSubmit={onSubmit}
+          >
+            <TextInput
+              id="input-text"
+              name="text"
+              placeholder="What's happening?"
+              value={inputText}
+              maxLength={300}
+              onChange={onChangeText}
+            />
+            <SubmitButton
+              id="submit-button"
+              value="Send"
+            />
+          </Form>
+          { posts.map(({ id, title, body }) => (
+            <Card
+              key={id}
+              title={title}
+              body={body}
+            />
+          ))}
+        </Layout>
+      </Suspense>
+    )
+  }
+}
 
 Feed.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.shape({
@@ -86,13 +98,13 @@ Feed.propTypes = {
   inputText: PropTypes.string,
   onChangeText: PropTypes.func,
   onSubmit: PropTypes.func,
-};
+}
 
 Feed.defaultProps = {
   posts: [],
   inputText: '',
   onChangeText: () => {},
   onSubmit: () => {},
-};
+}
 
-export default Feed;
+export default Feed
