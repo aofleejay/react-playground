@@ -1,24 +1,21 @@
-import React, { useState } from 'react'
-import Layout from './common/Layout'
+import React, { Component } from 'react'
+import { Upload, Button, Icon } from 'antd'
 
-const Profile = React.memo(() => {
-  const [counter, setCounter] = useState(0)
-
-  const decrease = () => {
-    setCounter(counter - 1)
+class Profile extends Component {
+  uploadFile = (info) => {
+    console.log(info.file.size)
   }
 
-  const increase = () => {
-    setCounter(counter + 1)
+  render() {
+    return (
+      <Upload onChange={this.uploadFile}>
+        <Button>
+          <Icon type="upload" />
+          Click to Upload
+        </Button>
+      </Upload>
+    )
   }
-
-  return (
-    <Layout>
-      <button type="button" onClick={decrease}>-</button>
-      <p>{counter}</p>
-      <button type="button" onClick={increase}>+</button>
-    </Layout>
-  )
-})
+}
 
 export default Profile
